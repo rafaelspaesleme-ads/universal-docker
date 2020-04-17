@@ -1,0 +1,9 @@
+FROM ruby:${VERSION_RUBY}
+
+RUN mkdir /app
+WORKDIR /app
+
+ADD ${FILE_GEMFILE}.lock /app/
+RUN bundle install -j 8
+
+ADD . /app
