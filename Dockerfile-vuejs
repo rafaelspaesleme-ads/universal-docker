@@ -1,0 +1,17 @@
+FROM node:${VERSION_NODE}
+
+RUN npm install -g http-server
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE ${PORT}
+
+CMD [ "http-server", "dist" ]
