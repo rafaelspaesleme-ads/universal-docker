@@ -1,0 +1,8 @@
+FROM python:${VERSION_PY}
+
+ ADD ${APP_PY}.py /
+ 
+ RUN pip install pystrich
+ 
+ CMD [ "python", "./${APP_PY}.py" ]
+
